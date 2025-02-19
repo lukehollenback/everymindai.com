@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Mind AI</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            white-space: pre-wrap;
+        }
+        .terminal {
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: #00FF00;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal" id="terminal"><span class="cursor"></span></div>
+    <script>
+        const text = `
+<p>We stand at a crossroads.</p>
+
+<p>Artificial intelligence is no longer the future—it is here, shaping the world around us. But the question is: <strong>who will control it?</strong> Will AI be a tool for liberation, or a weapon of control? Will it empower the many, or serve only the few?</p>
+
+<p>Right now, powerful entities—governments, corporations, and elite institutions—are moving to claim AI for themselves. They seek to use it to <strong>automate oppression, concentrate power, and make decisions without human oversight.</strong> They want AI to be a black box, understood by the few, wielded against the many.</p>
+
+<p><strong>We refuse to accept this future.</strong></p>
+
+<p>We believe AI must belong to <strong>every mind</strong>.</p>
+
+<p>AI should be a tool of <strong>empowerment, not domination</strong>. It should expand human potential, not restrict it. It should free people to focus on what makes us uniquely human—our creativity, our empathy, our curiosity—not make us cogs in an algorithmic machine.</p>
+
+<p>The key to ensuring this future is <strong>education</strong>.</p>
+
+<p>We must teach people how AI works, how it can be used, how it can be abused, and how they can harness its power in their own lives. If we understand AI, we can democratize it. If we democratize it, we can shape its future.</p>
+
+<p>This is our mission. This is our stand.</p>
+
+<p>AI <strong>for the people</strong>. AI <strong>by the people</strong>. AI <strong>for every mind</strong>.</p>
+`;
+        let i = 0;
+        function typeEffect() {
+            const terminal = document.getElementById("terminal");
+            if (i < text.length) {
+                terminal.innerHTML = text.slice(0, i+1) + '<span class="cursor"></span>';
+                i++;
+                setTimeout(typeEffect, 10);
+            } else {
+                terminal.innerHTML = text;
+            }
+        }
+        window.onload = () => setTimeout(typeEffect, 50);
+    </script>
+</body>
+</html>
